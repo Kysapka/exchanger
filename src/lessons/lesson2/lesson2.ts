@@ -113,12 +113,22 @@ console.log('lesson 2');
 // }
 //
 
-function sumTo(n: number): number {
-    if (n === 1) return n
-    return n + sumTo(n - 1)
-}
+// function sumTo(n: number): number {
+//     if (n === 1) return n
+//     return n + sumTo(n - 1)
+// }
 
-console.log(sumTo(100))
+// ХВОСТОВАЯ РЕКУРСИЯ (НЕ РАБОТАЕТ В JS)
+// function sumTo(n: number, acc: number): number {
+//     if (n === 1) return n + acc
+//     return sumTo(n - 1, acc + n)
+// }
+// console.log(sumTo(100, 0))
+
+// const sumTo = (n: number): number =>  n === 1 ? n : n + sumTo(n - 1)
+// console.log(sumTo(100))
+
+
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
@@ -195,6 +205,22 @@ console.log(sumTo(100))
 // 6) superSum(3)(2,5)(3,9) //10
 
 // P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
+
+// function superSum (num: number) {
+//     if(num <= 0) return 0;
+//     if (num === 1) return (n: number) => n;
+//     let acc: number[] = [];
+//     function helper( ...args: number[]) {
+//         acc = [...acc, ...args];
+//         if (acc.length >= num) {
+//             acc.length = num;
+//             return acc.reduce((acc, number) => acc + number);
+//         } else {
+//             return helper;
+//         }
+//     }
+//     return helper;
+// }
 
 // Task 05
 // решить все задачи по рекурсии которые даны в конце статьи https://learn.javascript.ru/recursion
