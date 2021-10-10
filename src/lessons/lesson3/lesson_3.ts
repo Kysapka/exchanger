@@ -15,14 +15,14 @@ console.log('lesson 3');
 //     },
 // })
 
-axios.post('https://jsonplaceholder.typicode.com/posts', {
-    title: 'Artemy Title',
-    body: 'Artemy Body',
-    userId: 1,
-}).then(response => log(response.data))
-
-axios.get('https://jsonplaceholder.typicode.com/posts/1')
-    .then((response) => console.log(response.data))
+// axios.post('https://jsonplaceholder.typicode.com/posts', {
+//     title: 'Artemy Title',
+//     body: 'Artemy Body',
+//     userId: 1,
+// }).then(response => log(response.data))
+//
+// axios.get('https://jsonplaceholder.typicode.com/posts/1')
+//     .then((response) => console.log(response.data))
 
 
 // Event loop
@@ -40,6 +40,26 @@ axios.get('https://jsonplaceholder.typicode.com/posts/1')
 // https://jsonplaceholder.typicode.com/posts/1
 // https://habr.com/ru/company/oleg-bunin/blog/417461/?_ga=2.54695343.543933152.1602500664-1040035071.1596811661
 
+
+// async function f() { // let f = async () => {}
+//     try {
+//         // let a = 10;
+//         // console.log(a);
+//         // const response = await somePromise;
+//         const response = await Promise.resolve(1000);
+//         // throw 50;
+//         // return a + a;
+//         return response
+//     } catch (err) {
+//         return err;
+//     }
+// }
+
+// console.log('start')
+// f().then(console.log)
+// console.log('end')
+// let c = 10
+// console.log(c)
 
 // just a plug
 export default () => {
