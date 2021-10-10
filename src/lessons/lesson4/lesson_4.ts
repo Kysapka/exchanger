@@ -77,24 +77,24 @@ console.log('lesson 4');
 // show();
 
 //Task6
-console.log(1)
-function f() {
-    console.log(2)
-}
-setTimeout(() => {
-    console.log(3);
-    let p = new Promise((res, rej) => {
-        console.log(4);
-        res(undefined);
-    });
-    p.then(() => f());
-}, 0);
-let l = new Promise((res, rej) => {
-    console.log(5);
-    rej();
-});
-l.then(res => console.log(res)).catch(() => console.log(6));
-console.log(7);
+// console.log(1)
+// function f() {
+//     console.log(2)
+// }
+// setTimeout(() => {
+//     console.log(3);
+//     let p = new Promise((res, rej) => {
+//         console.log(4);
+//         res(undefined);
+//     });
+//     p.then(() => f());
+// }, 0);
+// let l = new Promise((res, rej) => {
+//     console.log(5);
+//     rej();
+// });
+// l.then(res => console.log(res)).catch(() => console.log(6));
+// console.log(7);
 // 1,5,7,6,3,4,2
 
 //Task from EPAM
@@ -139,12 +139,19 @@ console.log(7);
 // Task 01
 // Создайте промис, который постоянно находиться в состоянии pending.
 // В конструкторе промиса выведите в консоль сообщение "Promise is created".
-
+// const p = new Promise((res, rej) => {
+//     console.log('Promise is created')
+// })
+// //@ts-ignore
+// window.pr = p;
 
 // Task 02
 // Создайте промис, который после создания сразу же переходит в состояние resolve
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
+
+// export const pr =  Promise.resolve('some resolve data');
+//      pr.then(data => console.log('Promise data: ' + data))
 
 
 // Task 03
@@ -152,6 +159,9 @@ console.log(7);
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
 
+// export const rejectedPromise = new Promise((res, rej) => {
+//     rej('Promise Error');
+// }).catch(console.log)
 
 // Task 04
 // Создайте промис, который переходит в состояние resolved через 3с.
@@ -159,6 +169,11 @@ console.log(7);
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
+// let newPromise = new Promise((res, rej) => {
+//     setInterval(() => {
+//         res('Promise Data')
+//     }, 3000)
+// }).then(console.log)
 
 // Task 05
 // Создайте литерал объекта handlePromise со следующими свойствами:
@@ -181,6 +196,18 @@ console.log(7);
 // Создайте функцию print, которая выводит в консоль значение своего параметра
 // Добавьте два метода then и передайте созданные функции.
 
+// const onSuccess = (param: any) => param + 'Artem'
+// const print = (param: any) =>  console.log(param)
+//
+// let pr = new Promise((res, rej) => {
+//     setInterval(() => {
+//         res("My name is ")
+//     }, 1000)
+// })
+//     pr
+//         .then(onSuccess)
+//         .then(print)
+
 
 // Task 7
 // Создайте три промиса. Первый промис возвращает объект { name: "Anna" } через 2с,
@@ -188,7 +215,26 @@ console.log(7);
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
 
-
+let firstPromise = new Promise((res, rej) => {
+    setTimeout(() => {
+        res({name: 'Anna'})
+    }, 2000)
+})
+let secondPromise = new Promise((res, rej) => {
+    setTimeout(() => {
+        res({age: 16})
+    }, 3000)
+})
+let thirdPromise = new Promise((res, rej) => {
+    setTimeout(() => {
+        res({city: ''})
+    }, 4000)
+})
+    Promise.all([firstPromise, secondPromise, thirdPromise])
+        .then((result) => {
+            let resultObj = result.reduce((acc, el) => Object.assign(acc, el), {})
+            console.log(resultObj)
+        })
 
 // just a plug
 export default ()=>{};
