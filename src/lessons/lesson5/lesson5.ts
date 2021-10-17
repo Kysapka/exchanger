@@ -376,8 +376,36 @@ console.log('Lesson 5');
 // // counter1.decrement()
 //
 // console.log(counter1.getCurrentCount())
-
-
+//
+// class Counter {
+//     constructor() {
+//         //@ts-ignore
+//         this.currentValue = 0;
+//     }
+//     getCurrentCount() {
+//         //@ts-ignore
+//         return this.currentValue
+//     }
+//     increment() {
+//         //@ts-ignore
+//         this.currentValue = this.currentValue + 1;
+//         return this
+//     }
+//     decrement() {
+//         //@ts-ignore
+//         this.currentValue = this.currentValue - 1;
+//         return this
+//     }
+//     setCurrentCount(currentCount: number) {
+//         //@ts-ignore
+//         this.currentValue = currentCount;
+//         return this
+//     }
+// }
+//
+// let counter = new Counter()
+// //@ts-ignore
+// console.log(counter.setCurrentCount(10).increment().increment().increment().decrement().getCurrentCount())
 
 // Task 03
 // переделайте код из Task 02, что бы сработал следующий код:
@@ -387,10 +415,32 @@ console.log('Lesson 5');
 // Написать функцию конструктор myFirstConstructorFunc которая принимает 2 параметра name и age и возвращает объект
 // у которого будут эти свойства и метод greeting из Task 01
 
+
+// class myFirstConstuctorFunc {
+//     constructor(name: string, age: number) {
+//         //@ts-ignore
+//         this.name = name;
+//         //@ts-ignore
+//         this.age = age;
+//     }
+//     greetings() {
+//         //@ts-ignore
+//         return `My name is ${this.name}. I am ${this.age}`
+//     }
+// }
+//
+// let obj2 = new myFirstConstuctorFunc ('Artemy', 36)
+//
+// let result = someObj.greeting.call(obj2, 'Artemy', 36)
+//
+// console.log(result)
+
 // Task 05 есть 2 объекта One и Two. С помощью bind и метода sayHello заставьте поздороваться объект One
 
-// let One = {name: 'One'};
-// let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
+let One = {name: 'One'};
+let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
+//
+// console.log(Two.sayHello.call(One))
 
 // Task 06
 // создайте объект helperObj у которого есть следующие методы:
@@ -398,6 +448,22 @@ console.log('Lesson 5');
 // setAge - устанавливает полученное значение в свойство age объекта
 // greeting - используется функция sayHello из Task 05
 // можно использовать @ts-ignore
+
+// const helperObj = {
+//     name: '',
+//     changeName: function (newName: string) {
+//         this.name = newName;
+//     },
+//     setAge: function (age: number) {
+//         //@ts-ignore
+//         this.age = age;
+//     },
+//     greeting: Two.sayHello
+// }
+//
+// helperObj.changeName('Artem')
+// helperObj.setAge(36)
+// console.dir(helperObj.greeting())
 
 // Bind
 // 1) Дана функция sumTwoNumbers, реализовать функцию bindNumber которая принимает функцию sumTwoNumbers и число, и
