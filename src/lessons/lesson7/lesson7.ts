@@ -20,6 +20,24 @@ console.log('Lesson 7');
 // walk => `${this.name} walking`
 // проверить, что методы работают
 
+class Animal {
+    name: string;
+    constructor(name: string = 'Animal') {
+        this.name = name;
+    }
+    walk () {
+        console.log(`${this.name} walking`)
+    }
+    eat () {
+        console.log(`${this.name} eating`)
+    }
+    sleep () {
+        console.log(`${this.name} sleeping`)
+    }
+}
+
+const pet = new Animal()
+pet.walk()
 
 //Task 02
 // Реализовать класс Monkey на базе класса Animal,  конструктор принимает name(по умолчанию 'Monkey') в качестве
@@ -39,7 +57,6 @@ console.log('Lesson 7');
 
 // Task 05
 // Используя метод Apply реализовать свой собственный метод bind
-
 
 // just a plug
 export default () => {};

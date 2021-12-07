@@ -189,45 +189,45 @@ console.log('lesson 4');
 // resolve и reject. Следующие два обработчика запускают методы resolve и reject.
 
 
-type testObjType = {
-    promise: null | Promise<any>;
-    resolve: null | Function;
-    reject: null | Function;
-    onSuccess: (paramName: string) => void;
-    onError: (paramName: string) => void;
-}
-
-const handlePromise: testObjType = {
-    promise: null,
-    resolve: null,
-    reject: null,
-    onSuccess: (paramName: string) => {
-        console.log(`Promise is resolved with data: ${paramName}`);
-    },
-    onError: (paramName: string) => {
-        console.log(`Promise is rejected with error: ${paramName}`);
-    }
-}
-
-export const createPromise = () => {
-    handlePromise.promise = new Promise((res, rej) => {
-        handlePromise.resolve = res;
-        handlePromise.reject = rej;
-    });
-    handlePromise.promise
-        .then(handlePromise.onSuccess)
-        .catch(handlePromise.onError);
-    //@ts-ignore
-    window.hndlprom = handlePromise;
-}
-
-export const resolvePromise = () => {
-    handlePromise.resolve && handlePromise.resolve('1');
-}
-
-export const rejectPromise = () => {
-    handlePromise.reject && handlePromise.reject('0');
-}
+// type testObjType = {
+//     promise: null | Promise<any>;
+//     resolve: null | Function;
+//     reject: null | Function;
+//     onSuccess: (paramName: string) => void;
+//     onError: (paramName: string) => void;
+// }
+//
+// const handlePromise: testObjType = {
+//     promise: null,
+//     resolve: null,
+//     reject: null,
+//     onSuccess: (paramName: string) => {
+//         console.log(`Promise is resolved with data: ${paramName}`);
+//     },
+//     onError: (paramName: string) => {
+//         console.log(`Promise is rejected with error: ${paramName}`);
+//     }
+// }
+//
+// export const createPromise = () => {
+//     handlePromise.promise = new Promise((res, rej) => {
+//         handlePromise.resolve = res;
+//         handlePromise.reject = rej;
+//     });
+//     handlePromise.promise
+//         .then(handlePromise.onSuccess)
+//         .catch(handlePromise.onError);
+//     //@ts-ignore
+//     window.hndlprom = handlePromise;
+// }
+//
+// export const resolvePromise = () => {
+//     handlePromise.resolve && handlePromise.resolve('1');
+// }
+//
+// export const rejectPromise = () => {
+//     handlePromise.reject && handlePromise.reject('0');
+// }
 
 // Task 06
 // Создайте промис, который через 1 с возвращает строку "My name is".
@@ -255,26 +255,26 @@ export const rejectPromise = () => {
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
 
-let firstPromise = new Promise((res, rej) => {
-    setTimeout(() => {
-        res({name: 'Anna'})
-    }, 2000)
-})
-let secondPromise = new Promise((res, rej) => {
-    setTimeout(() => {
-        res({age: 16})
-    }, 3000)
-})
-let thirdPromise = new Promise((res, rej) => {
-    setTimeout(() => {
-        res({city: ''})
-    }, 4000)
-})
-    Promise.all([firstPromise, secondPromise, thirdPromise])
-        .then((result) => {
-            let resultObj = result.reduce((acc, el) => Object.assign(acc, el), {})
-            console.log(resultObj)
-        })
+// let firstPromise = new Promise((res, rej) => {
+//     setTimeout(() => {
+//         res({name: 'Anna'})
+//     }, 2000)
+// })
+// let secondPromise = new Promise((res, rej) => {
+//     setTimeout(() => {
+//         res({age: 16})
+//     }, 3000)
+// })
+// let thirdPromise = new Promise((res, rej) => {
+//     setTimeout(() => {
+//         res({city: ''})
+//     }, 4000)
+// })
+//     Promise.all([firstPromise, secondPromise, thirdPromise])
+//         .then((result) => {
+//             let resultObj = result.reduce((acc, el) => Object.assign(acc, el), {})
+//             console.log(resultObj)
+//         })
 
 // just a plug
 export default ()=>{};
